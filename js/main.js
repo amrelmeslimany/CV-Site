@@ -58,37 +58,39 @@ btn_nav.addEventListener("click", () => {
     }
 });
 /* Show Intro Vid When Click */
+if (document.URL.includes("CV.html")) {
+    btn_vid_intro.addEventListener('click', (e_1) => {
+        e_1.preventDefault();
+        // Create Elmeents To Vid and apend it to html page
+        let vid_ofl = document.createElement("div"),
+            of_content_vid = document.createElement("div"),
+            icon_close = document.createElement("i");
+        // Add class name
+        vid_ofl.className = "vid-overflow";
+        of_content_vid.className = "content";
+        icon_close.className = "fas fa-times clse-vid";
+        // Add source and Appending
+        of_content_vid.innerHTML = `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/SLfsV94WjYs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+        of_content_vid.prepend(icon_close);
+        vid_ofl.append(of_content_vid);
+        document.body.prepend(vid_ofl);
+        // Close Vid After Open Intro
+        document.addEventListener("click", (e_2) => {
+            // Select if this btn or not
+            if (e_2.target.classList.contains("clse-vid")) {
+                // reomove All overflow
+                vid_ofl.remove();
+            }
+            // if clicked in an point also make that
+            if (e_2.target.classList.contains("vid-overflow")) {
+                // reomove All overflow
+                vid_ofl.remove();
+            }
+        });
 
-btn_vid_intro.addEventListener('click', (e_1) => {
-    e_1.preventDefault();
-    // Create Elmeents To Vid and apend it to html page
-    let vid_ofl = document.createElement("div"),
-        of_content_vid = document.createElement("div"),
-        icon_close = document.createElement("i");
-    // Add class name
-    vid_ofl.className = "vid-overflow";
-    of_content_vid.className = "content";
-    icon_close.className = "fas fa-times clse-vid";
-    // Add source and Appending
-    of_content_vid.innerHTML = `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/SLfsV94WjYs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
-    of_content_vid.prepend(icon_close);
-    vid_ofl.append(of_content_vid);
-    document.body.prepend(vid_ofl);
-    // Close Vid After Open Intro
-    document.addEventListener("click", (e_2) => {
-        // Select if this btn or not
-        if (e_2.target.classList.contains("clse-vid")) {
-            // reomove All overflow
-            vid_ofl.remove();
-        }
-        // if clicked in an point also make that
-        if (e_2.target.classList.contains("vid-overflow")) {
-            // reomove All overflow
-            vid_ofl.remove();
-        }
     });
+}
 
-});
 
 
 
