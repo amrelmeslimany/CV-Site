@@ -2924,7 +2924,7 @@ fieldset:disabled .btn {
 .btn-primary:active:focus,
 .btn-primary.active:focus,
 .show>.btn-primary.dropdown-toggle:focus {
-    box-shadow: 0 0 0 0.2rem rgba(49, 132, 253, 0.5);
+    box-shadow: none;
 }
 
 .btn-primary:disabled,
